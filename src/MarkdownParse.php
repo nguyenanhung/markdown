@@ -37,15 +37,6 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
-     * ------------------------------------------------------------------------
-     * Function blockCheckbox
-     *
-     * @param $line
-     *
-     * @return array
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 09/11/2021 26:38
      */
     protected function blockCheckbox($line)
     {
@@ -73,15 +64,6 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
-     * ------------------------------------------------------------------------
-     * Function blockListComplete
-     *
-     * @param array $blocks
-     *
-     * @return array
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 09/11/2021 27:00
      */
     protected function blockListComplete(array $Block)
     {
@@ -106,14 +88,6 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
-     * ------------------------------------------------------------------------
-     * Function blockCheckboxContinue
-     *
-     * @param array $block
-     *
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 09/11/2021 27:11
      */
     protected function blockCheckboxContinue(array $block)
     {
@@ -126,15 +100,6 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
-     * ------------------------------------------------------------------------
-     * Function blockCheckboxComplete
-     *
-     * @param array $block
-     *
-     * @return array
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 09/11/2021 27:18
      */
     protected function blockCheckboxComplete(array $block)
     {
@@ -153,15 +118,6 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
-     * ------------------------------------------------------------------------
-     * Function checkboxUnchecked
-     *
-     * @param $text
-     *
-     * @return string
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 09/11/2021 27:39
      */
     protected function checkboxUnchecked($text)
     {
@@ -179,15 +135,6 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
-     * ------------------------------------------------------------------------
-     * Function checkboxChecked
-     *
-     * @param $text
-     *
-     * @return string
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 09/11/2021 27:48
      */
     protected function checkboxChecked($text)
     {
@@ -205,12 +152,6 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
-     * ------------------------------------------------------------------------
-     * Formats the checkbox label without double escaping.
-     *
-     * @param string $text the string to format
-     *
-     * @return string the formatted text
      */
     protected function format($text)
     {
