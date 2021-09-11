@@ -1,0 +1,35 @@
+{
+    "name": "nguyenanhung/markdown",
+    "type": "library",
+    "description": "PHP Markdown",
+    "keywords": [
+        "markdown",
+        "helper",
+        "php"
+    ],
+    "homepage": "https://github.com/nguyenanhung/markdown",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Nguyen An Hung",
+            "email": "dev@nguyenanhung.com",
+            "homepage": "https://nguyenanhung.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "erusev/parsedown-extra": "^0.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "nguyenanhung\\Markdown\\": "src/"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    }
+}
