@@ -32,6 +32,7 @@ class MarkdownParse extends ParsedownExtra
         } catch (Exception $e) {
             if (function_exists('log_message')) {
                 log_message('error', $e->getMessage());
+                log_message('error', $e->getTraceAsString());
             }
         }
     }
@@ -48,7 +49,7 @@ class MarkdownParse extends ParsedownExtra
      *
      * @return array
      */
-    protected function blockCheckbox($line)
+    protected function blockCheckbox($line): array
     {
         $text       = trim($line['text']);
         $begin_line = substr($text, 0, 4);
@@ -75,7 +76,7 @@ class MarkdownParse extends ParsedownExtra
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
      */
-    protected function blockListComplete(array $Block)
+    protected function blockListComplete(array $Block): array
     {
         foreach ($Block['element']['elements'] as &$li_element) {
             foreach ($li_element['handler']['argument'] as $text) {
@@ -111,7 +112,7 @@ class MarkdownParse extends ParsedownExtra
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
      */
-    protected function blockCheckboxComplete(array $block)
+    protected function blockCheckboxComplete(array $block): array
     {
         $block['element'] = [
             'rawHtml'                => $this->{$block['handler']}($block['text']),
@@ -129,7 +130,7 @@ class MarkdownParse extends ParsedownExtra
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
      */
-    protected function checkboxUnchecked($text)
+    protected function checkboxUnchecked($text): string
     {
         if ($this->markupEscaped || $this->safeMode) {
             $text = self::escape($text);
@@ -146,7 +147,7 @@ class MarkdownParse extends ParsedownExtra
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
      */
-    protected function checkboxChecked($text)
+    protected function checkboxChecked($text): string
     {
         if ($this->markupEscaped || $this->safeMode) {
             $text = self::escape($text);
@@ -163,7 +164,7 @@ class MarkdownParse extends ParsedownExtra
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
      */
-    protected function format($text)
+    protected function format($text): string
     {
         // backup settings
         $markup_escaped = $this->markupEscaped;
