@@ -10,6 +10,7 @@
 
 namespace nguyenanhung\Markdown;
 
+use Exception;
 use ParsedownExtra;
 
 /**
@@ -25,9 +26,14 @@ class MarkdownParse extends ParsedownExtra
 
     public function __construct()
     {
-        parent::__construct();
-
-        array_unshift($this->BlockTypes['['], 'Checkbox');
+        try {
+            parent::__construct();
+            array_unshift($this->BlockTypes['['], 'Checkbox');
+        } catch (Exception $e) {
+            if (function_exists('log_message')) {
+                log_message('error', $e->getMessage());
+            }
+        }
     }
 
     /**
@@ -37,6 +43,10 @@ class MarkdownParse extends ParsedownExtra
      *
      * For the full copyright and license information, please view the LICENSE
      * file that was distributed with this source code.
+     *
+     * @param $line
+     *
+     * @return array
      */
     protected function blockCheckbox($line)
     {

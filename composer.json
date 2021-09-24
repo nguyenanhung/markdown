@@ -19,9 +19,10 @@
         }
     ],
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": ">=5.4",
         "ext-curl": "*",
         "ext-json": "*",
+        "ext-mbstring": "*",
         "erusev/parsedown-extra": "^0.8"
     },
     "autoload": {
