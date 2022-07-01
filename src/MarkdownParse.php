@@ -22,7 +22,7 @@ use ParsedownExtra;
  */
 class MarkdownParse extends ParsedownExtra
 {
-    const VERSION = '0.2.0';
+    const VERSION = '1.0.3';
 
     public function __construct()
     {
@@ -77,13 +77,17 @@ class MarkdownParse extends ParsedownExtra
      */
     protected function blockListComplete(array $Block)
     {
-        foreach ($Block['element']['elements'] as &$li_element) {
-            foreach ($li_element['handler']['argument'] as $text) {
-                $begin_line = substr(trim($text), 0, 4);
-                if ('[ ] ' === $begin_line) {
-                    $li_element['attributes'] = ['class' => 'parsedown-task-list parsedown-task-list-open'];
-                } elseif ('[x] ' === $begin_line) {
-                    $li_element['attributes'] = ['class' => 'parsedown-task-list parsedown-task-list-close'];
+        if (isset($Block['element']['elements'])) {
+            foreach ($Block['element']['elements'] as &$li_element) {
+                if (isset($li_element['handler']['argument'])) {
+                    foreach ($li_element['handler']['argument'] as $text) {
+                        $begin_line = substr(trim($text), 0, 4);
+                        if ('[ ] ' === $begin_line) {
+                            $li_element['attributes'] = ['class' => 'parsedown-task-list parsedown-task-list-open'];
+                        } elseif ('[x] ' === $begin_line) {
+                            $li_element['attributes'] = ['class' => 'parsedown-task-list parsedown-task-list-close'];
+                        }
+                    }
                 }
             }
         }
