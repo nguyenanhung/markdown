@@ -47,7 +47,7 @@ class MarkdownParse extends ParsedownExtra
      *
      * @param $line
      *
-     * @return array
+     * @return array|void
      */
     protected function blockCheckbox($line)
     {
