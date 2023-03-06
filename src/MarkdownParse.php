@@ -22,7 +22,7 @@ use ParsedownExtra;
  */
 class MarkdownParse extends ParsedownExtra
 {
-    const VERSION = '1.0.3';
+    const VERSION = '1.0.4';
 
     public function __construct()
     {
@@ -31,7 +31,8 @@ class MarkdownParse extends ParsedownExtra
             array_unshift($this->BlockTypes['['], 'Checkbox');
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', $e->getMessage());
+                $errorMessage = 'Error Code:' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
+                log_message('error', $errorMessage);
             }
         }
     }
@@ -50,7 +51,7 @@ class MarkdownParse extends ParsedownExtra
      */
     protected function blockCheckbox($line)
     {
-        $text       = trim($line['text']);
+        $text = trim($line['text']);
         $begin_line = substr($text, 0, 4);
         if ('[ ] ' === $begin_line) {
             return [
@@ -171,7 +172,7 @@ class MarkdownParse extends ParsedownExtra
     {
         // backup settings
         $markup_escaped = $this->markupEscaped;
-        $safe_mode      = $this->safeMode;
+        $safe_mode = $this->safeMode;
 
         // disable rules to prevent double escaping.
         $this->setMarkupEscaped(false);
